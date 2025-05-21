@@ -10,7 +10,7 @@
 
 // validation.c
 int	is_valid_int(const char *str);
-int	check_valid_args(const char *str);
+int	check_valid_args(int argc, char **argv);
 int	has_duplicates(char **args);
 
 // free.c
