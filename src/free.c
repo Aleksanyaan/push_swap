@@ -12,3 +12,15 @@ void	free_args(char **args)
 	}
 	free(args);
 }
+
+void	free_stack(t_stack *stack)
+{
+	t_stack	*temp;
+
+	while (stack)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
+}

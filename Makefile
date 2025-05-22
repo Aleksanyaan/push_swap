@@ -10,12 +10,13 @@ HEADER		= ./includes/push_swap.h
 
 CC			= cc
 
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror #-fsanitize=address
 
 SRC_DIR		= ./src
 
 SRC			= $(SRC_DIR)/validation.c \
  				$(SRC_DIR)/free.c \
+				$(SRC_DIR)/fill_stack.c \
 
 MAIN		= main.c
 
@@ -33,7 +34,7 @@ $(NAME): $(OBJ) $(MOBJ) $(LIBFT_DIR)/libft.a Makefile
 	$(CC) $(FLAGS) $(INCLUDES) $(OBJ) $(MOBJ) -o $(NAME) $(LIBFT)
 
 lib:
-	make -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR) bonus
 
 build:
 	mkdir -p ${BUILD_DIR}

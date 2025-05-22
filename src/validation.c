@@ -1,7 +1,10 @@
 #include "../includes/push_swap.h"
 
-int	check_overflow(const char *str, int i, long result, int sign)
+int	check_overflow(const char *str, int i, int sign)
 {
+	long	result;
+
+	result = 0;
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -20,10 +23,8 @@ int	is_valid_int(const char *str)
 {
 	int		i;
 	int		sign;
-	long	result;
 
 	i = 0;
-	result = 0;
 	sign = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
@@ -33,11 +34,10 @@ int	is_valid_int(const char *str)
 			sign = -1;
 		i++;
 	}
-	if (str[i] == '+' || str[i] == '-')
-		return (0);
 	if (!str[i])
 		return (0);
-	check_overflow(str, i, result, sign);
+	if (!check_overflow(str, i, sign))
+		return (0);
 	return (1);
 }
 
@@ -98,8 +98,6 @@ int	check_valid_args(int argc, char **argv)
 	char	**args;
 	int		i;
 
-	if (argc < 2)
-		return (0);
 	joined = join_all_args(argc, argv);
 	if (!joined)
 		return (0);
