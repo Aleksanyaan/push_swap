@@ -10,7 +10,7 @@ HEADER		= ./includes/push_swap.h
 
 CC			= cc
 
-FLAGS		= -Wall -Wextra -Werror -fsanitize=address
+FLAGS		= -Wall -Wextra -Werror #-fsanitize=address
 
 SRC_DIR		= ./src
 
@@ -38,7 +38,7 @@ $(NAME): $(OBJ) $(MOBJ) $(LIBFT_DIR)/libft.a Makefile
 	$(CC) $(FLAGS) $(INCLUDES) $(OBJ) $(MOBJ) -o $(NAME) $(LIBFT)
 
 lib:
-	make -C $(LIBFT_DIR) bonus
+	make -C $(LIBFT_DIR)
 
 build:
 	mkdir -p ${BUILD_DIR}

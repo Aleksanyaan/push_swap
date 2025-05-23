@@ -28,6 +28,7 @@ void				free_stack(t_stack *stack);
 // fill_stack.h
 t_stack				*fill_stack_a(const char *str);
 void				stack_add_back(t_stack **stack, t_stack *new);
+void				set_index(t_stack *stack);
 
 // swap.c
 void				sa(t_stack *a);

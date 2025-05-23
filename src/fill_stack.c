@@ -30,9 +30,9 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 
 t_stack	*fill_stack_a(const char *str)
 {
-	int i;
-	char **args;
-	t_stack *a;
+	int		i;
+	char	**args;
+	t_stack	*a;
 
 	args = ft_split(str, ' ');
 	if (!args)
@@ -46,4 +46,26 @@ t_stack	*fill_stack_a(const char *str)
 	}
 	free_args(args);
 	return (a);
+}
+
+void	set_index(t_stack *stack)
+{
+	t_stack	*current;
+	t_stack	*compare;
+	int		count;
+
+	current = stack;
+	while (current)
+	{
+		count = 0;
+		compare = stack;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				count++;
+			compare = compare->next;
+		}
+		current->index = count;
+		current = current->next;
+	}
 }
