@@ -12,6 +12,7 @@ void	print_stack(t_stack *stack)
 int	main(int argc, char **argv)
 {
 	t_stack *a;
+	t_stack *b;
 	char	*joined;
 
 	if (argc < 2)
@@ -26,14 +27,22 @@ int	main(int argc, char **argv)
 	}
 
 	a = fill_stack_a(joined);
+	b = fill_stack_a(joined);
 	free(joined);
-	if (!a)
+	if (!a || !b)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 
+	// print_stack(a);
+	// print_stack(b);
+	rra(&a);
+	printf("A\n");
 	print_stack(a);
+	// printf("B\n");
+	// print_stack(b);
 	free_stack(a);
+	free_stack(b);
 	return (0);
 }

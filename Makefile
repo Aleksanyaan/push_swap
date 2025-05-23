@@ -10,13 +10,17 @@ HEADER		= ./includes/push_swap.h
 
 CC			= cc
 
-FLAGS		= -Wall -Wextra -Werror #-fsanitize=address
+FLAGS		= -Wall -Wextra -Werror -fsanitize=address
 
 SRC_DIR		= ./src
 
 SRC			= $(SRC_DIR)/validation.c \
  				$(SRC_DIR)/free.c \
 				$(SRC_DIR)/fill_stack.c \
+				$(SRC_DIR)/swap.c \
+				$(SRC_DIR)/push.c \
+				$(SRC_DIR)/rotate.c \
+				$(SRC_DIR)/reverse_rotate.c \
 
 MAIN		= main.c
 
