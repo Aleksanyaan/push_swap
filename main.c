@@ -9,11 +9,29 @@ void	print_stack(t_stack *stack)
 	}
 }
 
+void	sort(t_stack **a, t_stack **b, int size)
+{
+	if (size == 2)
+		sort2(a);
+	else if (size == 3)
+		sort3(a);
+	else if (size == 4)
+		sort4(a, b);
+	else if (size == 5)
+		sort5(a, b);
+	else
+	{
+		butterfly(a, b, size);
+		back_to_a(a, b);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	char	*joined;
+	int		size;
 
 	if (argc < 2)
 		return (0);
@@ -33,13 +51,8 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	set_index(a);
-	// print_stack(a);
-	sort5(&a, &b);
-	// print_stack(a);
-	// printf("A\n");
-	// print_stack(a);
-	// printf("B\n");
-	// print_stack(b);
+	size = stack_size(a);
+	sort(&a, &b, size);
 	free_stack(a);
 	free_stack(b);
 	return (0);

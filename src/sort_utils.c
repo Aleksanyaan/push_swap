@@ -39,3 +39,30 @@ int	get_min_index(t_stack *stack)
 	}
 	return (min_index);
 }
+
+int	get_max_index(t_stack *stack)
+{
+	int	max_index;
+
+	max_index = stack->index;
+	while (stack)
+	{
+		if (stack->index > max_index)
+			max_index = stack->index;
+		stack = stack->next;
+	}
+	return (max_index);
+}
+
+int	stack_size(t_stack *stack)
+{
+	int size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
+}

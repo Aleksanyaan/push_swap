@@ -50,6 +50,7 @@ void				rr(t_stack **a, t_stack **b);
 void				rra(t_stack **a);
 void				rrb(t_stack **b);
 void				rrr(t_stack **a, t_stack **b);
+t_stack				*stack_last(t_stack **stack);
 
 // small_sorts.c
 void				sort2(t_stack **stack);
@@ -61,5 +62,11 @@ void				sort5(t_stack **a, t_stack **b);
 int					is_sorted(t_stack *stack);
 int					get_position(t_stack *stack, int index);
 int					get_min_index(t_stack *stack);
+int					get_max_index(t_stack *stack);
+int					stack_size(t_stack *stack);
+
+// butterfly.c
+void				back_to_a(t_stack **a, t_stack **b);
+void				butterfly(t_stack **a, t_stack **b, int size);
 
 #endif
