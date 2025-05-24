@@ -51,4 +51,15 @@ void				rra(t_stack **a);
 void				rrb(t_stack **b);
 void				rrr(t_stack **a, t_stack **b);
 
+// small_sorts.c
+void				sort2(t_stack **stack);
+void				sort3(t_stack **stack);
+void				sort4(t_stack **a, t_stack **b);
+void				sort5(t_stack **a, t_stack **b);
+
+// sort_utils.c
+int					is_sorted(t_stack *stack);
+int					get_position(t_stack *stack, int index);
+int					get_min_index(t_stack *stack);
+
 #endif

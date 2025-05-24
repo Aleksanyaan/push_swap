@@ -21,6 +21,8 @@ SRC			= $(SRC_DIR)/validation.c \
 				$(SRC_DIR)/push.c \
 				$(SRC_DIR)/rotate.c \
 				$(SRC_DIR)/reverse_rotate.c \
+				$(SRC_DIR)/small_sorts.c \
+				$(SRC_DIR)/sort_utils.c \
 
 MAIN		= main.c
 

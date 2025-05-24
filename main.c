@@ -25,15 +25,17 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	a = fill_stack_a(joined);
-	b = fill_stack_a(joined);
+	b = NULL;
 	free(joined);
-	if (!a || !b)
+	if (!a)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 	set_index(a);
-	print_stack(a);
+	// print_stack(a);
+	sort5(&a, &b);
+	// print_stack(a);
 	// printf("A\n");
 	// print_stack(a);
 	// printf("B\n");
