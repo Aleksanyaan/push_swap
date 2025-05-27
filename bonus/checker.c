@@ -6,7 +6,7 @@
 /*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:55:24 by zaleksan          #+#    #+#             */
-/*   Updated: 2025/05/27 13:55:25 by zaleksan         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:10:31 by zaleksan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ int	check_operations(t_stack **a, t_stack **b)
 		if (!line)
 			break ;
 		if (!apply_operation(a, b, line))
-		{
-			free(line);
-			write(2, "Error\n", 6);
-			return (0);
-		}
+			return (free(line), 0);
 		free(line);
 	}
 	return (1);
@@ -76,7 +72,6 @@ int	main(int argc, char *argv[])
 	t_stack	*a;
 	t_stack	*b;
 	char	*joined;
-	int		size;
 
 	a = NULL;
 	b = NULL;
@@ -84,18 +79,14 @@ int	main(int argc, char *argv[])
 		return (0);
 	joined = join_all_args(argc, argv);
 	if (!joined || !check_valid_args(argc, argv))
-		return (free(joined), write(2, "Error\n", 6), 1);
+		return (free(joined), 1);
 	a = fill_stack_a(joined);
 	free(joined);
 	if (!a)
-		return (write(2, "Error\n", 6), 1);
-	set_index(a);
-	size = stack_size(a);
-	if (!check_operations(&a, &b))
-	{
-		write_output(&a, &b);
 		return (1);
-	}
+	set_index(a);
+	if (!check_operations(&a, &b))
+		return (write_output(&a, &b), 1);
 	write_output(&a, &b);
 	return (0);
 }

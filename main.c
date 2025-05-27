@@ -6,7 +6,7 @@
 /*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:11:18 by zaleksan          #+#    #+#             */
-/*   Updated: 2025/05/27 14:11:19 by zaleksan         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:07:31 by zaleksan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 1);
 	set_index(a);
 	size = stack_size(a);
+	if (!size || size == 1)
+		return (0);
 	sort(&a, &b, size);
 	free_stack(a);
 	free_stack(b);

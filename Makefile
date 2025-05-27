@@ -13,7 +13,7 @@ B_HEADER 	= ./includes/checker.h
 
 CC			= cc
 
-FLAGS		= -Wall -Wextra -Werror -fsanitize=address
+FLAGS		= -Wall -Wextra -Werror
 
 SRC_DIR		= ./src
 BONUS_DIR	= ./bonus

@@ -6,7 +6,7 @@
 /*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:51:39 by zaleksan          #+#    #+#             */
-/*   Updated: 2025/05/27 13:51:40 by zaleksan         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:05:09 by zaleksan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_valid_args(int argc, char **argv)
 	int		i;
 
 	if (!check_empty(argc, argv))
-		return (0);
+		return (printf("empty"), 0);
 	joined = join_all_args(argc, argv);
 	if (!joined)
 		return (0);
