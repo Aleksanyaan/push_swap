@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   butterfly.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 13:51:04 by zaleksan          #+#    #+#             */
+/*   Updated: 2025/05/27 13:51:05 by zaleksan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	optimaizer(int size)
@@ -19,7 +31,7 @@ int	optimaizer(int size)
 
 void	butterfly(t_stack **a, t_stack **b, int size)
 {
-	int n;
+	int	n;
 	int	counter;
 
 	n = optimaizer(size);
@@ -44,10 +56,10 @@ void	butterfly(t_stack **a, t_stack **b, int size)
 
 void	back_to_a(t_stack **a, t_stack **b)
 {
-	int pos;
-	int size;
-	int max;
-	
+	int	pos;
+	int	size;
+	int	max;
+
 	while (*b)
 	{
 		max = get_max_index(*b);

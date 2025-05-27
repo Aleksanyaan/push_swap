@@ -1,13 +1,16 @@
-#include "./includes/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 14:11:18 by zaleksan          #+#    #+#             */
+/*   Updated: 2025/05/27 14:11:19 by zaleksan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%d: %d\n", stack->index, stack->value);
-		stack = stack->next;
-	}
-}
+#include "./includes/push_swap.h"
 
 void	sort(t_stack **a, t_stack **b, int size)
 {
@@ -37,19 +40,12 @@ int	main(int argc, char **argv)
 		return (0);
 	joined = join_all_args(argc, argv);
 	if (!joined || !check_valid_args(argc, argv))
-	{
-		free(joined);
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (free(joined), write(2, "Error\n", 6), 1);
 	a = fill_stack_a(joined);
 	b = NULL;
 	free(joined);
 	if (!a)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (write(2, "Error\n", 6), 1);
 	set_index(a);
 	size = stack_size(a);
 	sort(&a, &b, size);

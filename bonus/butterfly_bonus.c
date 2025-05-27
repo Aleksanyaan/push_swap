@@ -1,4 +1,16 @@
-#include "checker.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   butterfly_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 13:51:04 by zaleksan          #+#    #+#             */
+/*   Updated: 2025/05/27 13:54:04 by zaleksan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/checker.h"
 
 int	optimaizer(int size)
 {
@@ -44,9 +56,9 @@ void	butterfly(t_stack **a, t_stack **b, int size)
 
 void	back_to_a(t_stack **a, t_stack **b)
 {
-	int pos;
-	int size;
-	int max;
+	int	pos;
+	int	size;
+	int	max;
 
 	while (*b)
 	{

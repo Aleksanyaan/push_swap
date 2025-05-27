@@ -9,11 +9,11 @@ INCLUDES	= -I./includes -I./$(LIBFT_DIR)
 
 HEADER		= ./includes/push_swap.h
 
-B_HEADER 	= ./bonus/checker.h
+B_HEADER 	= ./includes/checker.h
 
 CC			= cc
 
-FLAGS		= -Wall -Wextra -Werror #-fsanitize=address
+FLAGS		= -Wall -Wextra -Werror -fsanitize=address
 
 SRC_DIR		= ./src
 BONUS_DIR	= ./bonus
@@ -27,7 +27,8 @@ SRC			= $(SRC_DIR)/validation.c \
 				$(SRC_DIR)/reverse_rotate.c \
 				$(SRC_DIR)/small_sorts.c \
 				$(SRC_DIR)/sort_utils.c \
-				$(SRC_DIR)/butterfly.c 
+				$(SRC_DIR)/butterfly.c \
+				$(SRC_DIR)/validation_utils.c \
 
 B_SRCS		= $(BONUS_DIR)/checker.c \
 				$(BONUS_DIR)/validation_bonus.c \
@@ -39,7 +40,8 @@ B_SRCS		= $(BONUS_DIR)/checker.c \
 				$(BONUS_DIR)/reverse_rotate_bonus.c \
 				$(BONUS_DIR)/small_sorts_bonus.c \
 				$(BONUS_DIR)/sort_utils_bonus.c \
-				$(BONUS_DIR)/butterfly_bonus.c 
+				$(BONUS_DIR)/butterfly_bonus.c \
+				$(BONUS_DIR)/validation_utils_bonus.c \
 
 
 MAIN		= main.c

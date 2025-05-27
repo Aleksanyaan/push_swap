@@ -1,4 +1,16 @@
-#include "checker.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 13:55:24 by zaleksan          #+#    #+#             */
+/*   Updated: 2025/05/27 13:55:25 by zaleksan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/checker.h"
 
 int	apply_operation(t_stack **a, t_stack **b, char *op)
 {
@@ -61,11 +73,13 @@ void	write_output(t_stack **a, t_stack **b)
 
 int	main(int argc, char *argv[])
 {
-	t_stack *a = NULL;
-	t_stack *b = NULL;
-	char *joined;
-	int size;
+	t_stack	*a;
+	t_stack	*b;
+	char	*joined;
+	int		size;
 
+	a = NULL;
+	b = NULL;
 	if (argc < 2)
 		return (0);
 	joined = join_all_args(argc, argv);
@@ -79,7 +93,7 @@ int	main(int argc, char *argv[])
 	size = stack_size(a);
 	if (!check_operations(&a, &b))
 	{
-		write_output(&a, &b);  // Will now safely free
+		write_output(&a, &b);
 		return (1);
 	}
 	write_output(&a, &b);

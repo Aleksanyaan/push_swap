@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/27 14:12:09 by zaleksan          #+#    #+#             */
+/*   Updated: 2025/05/27 14:12:10 by zaleksan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -16,10 +28,14 @@ typedef struct s_stack
 }					t_stack;
 
 // validation.c
-int					is_valid_int(const char *str);
-int					check_valid_args(int argc, char **argv);
-int					has_duplicates(char **args);
 char				*join_all_args(int argc, char **argv);
+
+// validation_utils.c
+int					has_duplicates(char **args);
+int					is_valid_int(const char *str);
+int					is_empty_or_spaces(const char *str);
+int					check_valid_args(int argc, char **argv);
+int					check_empty(int argc, char **argv);
 
 // free.c
 void				free_args(char **args);
