@@ -6,7 +6,7 @@
 /*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 14:11:18 by zaleksan          #+#    #+#             */
-/*   Updated: 2025/05/30 14:18:29 by zaleksan         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:38:07 by zaleksan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort(t_stack **a, t_stack **b, int size)
 		sort4(a, b);
 	else if (size == 5)
 		sort5(a, b);
-	else
+	else if(size >= 6 && !is_sorted(*a))
 	{
 		butterfly(a, b, size);
 		back_to_a(a, b);
