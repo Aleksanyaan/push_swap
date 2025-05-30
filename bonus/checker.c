@@ -6,7 +6,7 @@
 /*   By: zaleksan <zaleksan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:55:24 by zaleksan          #+#    #+#             */
-/*   Updated: 2025/05/27 21:10:31 by zaleksan         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:32:32 by zaleksan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	apply_operation(t_stack **a, t_stack **b, char *op)
 		rra(a);
 	else if (!ft_strncmp(op, "rrb\n", 4))
 		rrb(b);
-	else if (!ft_strncmp(op, "rrr\n", 3))
+	else if (!ft_strncmp(op, "rrr\n", 4))
 		rrr(a, b);
 	else
 		return (0);
@@ -49,9 +49,13 @@ int	check_operations(t_stack **a, t_stack **b)
 	{
 		line = get_next_line(STDIN_FILENO);
 		if (!line)
-			break ;
+			return (0);
 		if (!apply_operation(a, b, line))
-			return (free(line), 0);
+		{
+			free(line);
+			get_next_line(-1);
+			return (0);
+		}
 		free(line);
 	}
 	return (1);
@@ -71,6 +75,7 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		size;
 	char	*joined;
 
 	a = NULL;
@@ -79,12 +84,15 @@ int	main(int argc, char *argv[])
 		return (0);
 	joined = join_all_args(argc, argv);
 	if (!joined || !check_valid_args(argc, argv))
-		return (free(joined), 1);
+		return (free(joined), write(2, "Error\n", 6), 1);
 	a = fill_stack_a(joined);
 	free(joined);
 	if (!a)
-		return (1);
+		return (write(2, "Error\n", 6), 1);
 	set_index(a);
+	size = stack_size(a);
+	if (!size || size == 1 || is_sorted(a))
+		return (0);
 	if (!check_operations(&a, &b))
 		return (write_output(&a, &b), 1);
 	write_output(&a, &b);
